@@ -1,10 +1,10 @@
 <?php
 
-namespace palPalani\LoginNotification\Tests;
+namespace palPalani\LoginNotifications\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use palPalani\LoginNotification\NotificationServiceProvider;
+use palPalani\LoginNotifications\NotificationServiceProvider;
 
 class TestCase extends Orchestra
 {

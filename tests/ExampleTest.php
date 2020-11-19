@@ -1,6 +1,6 @@
 <?php
 
-namespace palPalani\LoginNotification\Tests;
+namespace palPalani\LoginNotifications\Tests;
 
 class ExampleTest extends TestCase
 {

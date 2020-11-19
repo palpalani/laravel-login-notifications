@@ -36,7 +36,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "palPalani\\LoginNotification\\Tests\\": "tests"
+      "palPalani\\LoginNotifications\\Tests\\": "tests"
     }
   },
   "scripts": {
