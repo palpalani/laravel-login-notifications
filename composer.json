@@ -1,0 +1,64 @@
+{
+  "name": "palpalani/laravel-login-notifications",
+  "description": "Login notifications for Laravel apps",
+  "keywords": [
+    "laravel",
+    "laravel-login-notification",
+    "auth",
+    "login",
+    "notifications",
+    "events",
+    "telegram",
+    "email",
+    "slack",
+    "history"
+  ],
+  "homepage": "https://github.com/palpalani/laravel-login-notifications",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "palPalani",
+      "email": "palani.p@gmail.com",
+      "homepage": "https://github.com/palpalani",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "laravel/framework": "^5.0|^6.0|^7.0|^8.0",
+    "nesbot/carbon": "^1.22|^2.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0",
+    "phpunit/phpunit": "^9.3",
+    "vimeo/psalm": "^3.11"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "palPalani\\LoginNotification\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "psalm": "vendor/bin/psalm",
+    "test": "vendor/bin/phpunit --colors=always",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "palPalani\\LoginNotifications\\NotificationServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "palPalani\\LoginNotifications\\": "src/"
+    }
+  }
+}
