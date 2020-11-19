@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace palPalani\LoginNotifications\Notifications;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Carbon;
 
 class FailedLogin extends Notification implements ShouldQueue
 {
@@ -84,5 +84,4 @@ class FailedLogin extends Notification implements ShouldQueue
                 ->line('A failed login was detected for your account.')
                 ->line('This request originated from ' . $this->ip . ' (' . gethostbyaddr($this->ip) . '), using the browser ' . $this->userAgent . ' at ' . $this->time);
     }
-
 }
