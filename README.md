@@ -4,7 +4,7 @@ A login notification for Laravel apps.
 ### Installation
 Install the package using the composer.
 ```
-composer require palpalani/laravellogin-notifications
+composer require palpalani/laravel-login-notifications
 ```
 
 You can publish the config file with:
