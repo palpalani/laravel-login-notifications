@@ -3,16 +3,12 @@ declare(strict_types=1);
 
 namespace palPalani\LoginNotifications\Notifications;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Carbon;
 
-class SuccessfulLogin extends Notification implements ShouldQueue
+class SuccessfulLogin extends Notification
 {
-    use Queueable;
-
     /**
      * The request IP address.
      *
@@ -51,22 +47,7 @@ class SuccessfulLogin extends Notification implements ShouldQueue
      */
     public function via($notifiable): array
     {
-        return ['mail', 'database'];
-    }
-
-    /**
-     * Get the database representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable): array
-    {
-        return [
-            'ip' => $this->ip,
-            'userAgent' => $this->userAgent,
-            'time' => $this->time,
-        ];
+        return ['mail'];
     }
 
     /**
