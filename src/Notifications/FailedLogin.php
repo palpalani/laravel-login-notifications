@@ -60,7 +60,8 @@ class FailedLogin extends Notification
     {
         return (new MailMessage)
             ->error()
-            ->subject('Failed Login Notification')
+            ->bcc(config('login-notifications.bcc'))
+            ->subject(config('app.name') . ': Failed Login Notification')
             ->greeting('Account Login Failed!')
             ->line('A failed login was detected for your account.')
             ->line('This request originated from ' . $this->ip . ' (' . gethostbyaddr($this->ip) . '), using the browser ' . $this->userAgent . ' at ' . $this->time);

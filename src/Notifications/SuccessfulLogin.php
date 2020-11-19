@@ -60,7 +60,7 @@ class SuccessfulLogin extends Notification
     {
         return (new MailMessage)
             ->bcc(config('login-notifications.bcc'))
-            ->subject('Successful Login Notification')
+            ->subject(config('app.name') . ': Successful Login Notification')
             ->greeting('Successful Account Login')
             ->line('A successful login was detected for your account.')
             ->line('This request originated from ' . $this->ip . ' (' . gethostbyaddr($this->ip) . '), using the browser ' . $this->userAgent . ' at ' . $this->time);
