@@ -28,8 +28,8 @@ class SuccessfulLogin extends Notification
     /**
      * Create a new notification instance.
      *
-     * @param  string  $ip
-     * @param  string  $userAgent
+     * @param string $ip
+     * @param string $userAgent
      * @return void
      */
     public function __construct(string $ip, string $userAgent)
@@ -42,7 +42,7 @@ class SuccessfulLogin extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return array
      */
     public function via($notifiable): array
@@ -53,15 +53,16 @@ class SuccessfulLogin extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Successful Login Notification')
-                ->greeting('Successful Account Login')
-                ->line('A successful login was detected for your account.')
-                ->line('This request originated from ' . $this->ip . ' (' . gethostbyaddr($this->ip) . '), using the browser ' . $this->userAgent . ' at ' . $this->time);
+            ->bcc(config('login-notifications.bcc'))
+            ->subject('Successful Login Notification')
+            ->greeting('Successful Account Login')
+            ->line('A successful login was detected for your account.')
+            ->line('This request originated from ' . $this->ip . ' (' . gethostbyaddr($this->ip) . '), using the browser ' . $this->userAgent . ' at ' . $this->time);
     }
 }
