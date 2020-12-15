@@ -1,5 +1,6 @@
 # Laravel Login Notifications
-A login notification for Laravel apps.
+A login event notification for Laravel projects. By default, it will send
+notification only on production environment only.
 
 ### Installation
 Install the package using the composer.

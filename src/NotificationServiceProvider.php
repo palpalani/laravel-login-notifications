@@ -26,23 +26,25 @@ class NotificationServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app['events']->listen($this->failedEvent, function ($event) {
-            if (isset($event->user) && is_a($event->user, \Illuminate\Database\Eloquent\Model::class)) {
-                $event->user->notify(new FailedLogin(
-                    $this->app['request']->ip(),
-                    $this->app['request']->userAgent()
-                ));
-            }
-        });
+        if ($this->app->isProduction()) {
+            $this->app['events']->listen($this->failedEvent, function ($event) {
+                if (isset($event->user) && is_a($event->user, \Illuminate\Database\Eloquent\Model::class)) {
+                    $event->user->notify(new FailedLogin(
+                        $this->app['request']->ip(),
+                        $this->app['request']->userAgent()
+                    ));
+                }
+            });
 
-        $this->app['events']->listen($this->successEvent, function ($event) {
-            if (isset($event->user) && is_a($event->user, \Illuminate\Database\Eloquent\Model::class)) {
-                $event->user->notify(new SuccessfulLogin(
-                    $this->app['request']->ip(),
-                    $this->app['request']->userAgent()
-                ));
-            }
-        });
+            $this->app['events']->listen($this->successEvent, function ($event) {
+                if (isset($event->user) && is_a($event->user, \Illuminate\Database\Eloquent\Model::class)) {
+                    $event->user->notify(new SuccessfulLogin(
+                        $this->app['request']->ip(),
+                        $this->app['request']->userAgent()
+                    ));
+                }
+            });
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
