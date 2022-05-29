@@ -30,9 +30,21 @@
     "nesbot/carbon": "^2.0"
   },
   "require-dev": {
-    "orchestra/testbench": "^6.0|^7.0",
-    "phpunit/phpunit": "^9.5",
-    "vimeo/psalm": "^4.0"
+    "friendsofphp/php-cs-fixer": "^3.8",
+    "nunomaduro/collision": "^6.0",
+    "nunomaduro/larastan": "^2.0.1",
+    "orchestra/testbench": "^7.0",
+    "pestphp/pest": "^1.21",
+    "pestphp/pest-plugin-laravel": "^1.1",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "palPalani\\LoginNotifications\\": "src/"
+    }
   },
   "autoload-dev": {
     "psr-4": {
@@ -40,12 +52,17 @@
     }
   },
   "scripts": {
-    "psalm": "vendor/bin/psalm",
-    "test": "vendor/bin/phpunit --colors=always",
-    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    "analyse": "vendor/bin/phpstan analyse",
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage",
+    "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "laravel": {
@@ -55,10 +72,5 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "psr-4": {
-      "palPalani\\LoginNotifications\\": "src/"
-    }
-  }
+  "prefer-stable": true
 }
