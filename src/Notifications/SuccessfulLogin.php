@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace palPalani\LoginNotifications\Notifications;
@@ -58,7 +59,7 @@ class SuccessfulLogin extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->bcc(config('login-notifications.bcc'))
             ->subject(config('app.name') . ': Successful Login Notification')
             ->greeting('Successful Account Login')

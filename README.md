@@ -1,4 +1,10 @@
 # Laravel Login Notifications
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/palpalani/laravel-login-notifications.svg?style=flat-square)](https://packagist.org/packages/palpalani/laravel-login-notifications)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/palpalani/laravel-login-notifications/run-tests?label=tests)](https://github.com/palpalani/laravel-login-notifications/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/palpalani/laravel-login-notifications/Check%20&%20fix%20styling?label=code%20style)](https://github.com/palpalani/laravel-login-notifications/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/palpalani/laravel-login-notifications.svg?style=flat-square)](https://packagist.org/packages/palpalani/laravel-login-notifications)
+
 A login event notification for Laravel projects. By default, it will send
 notification only on production environment only.
 
@@ -36,6 +42,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [palPalani](https://github.com/palpalani)
+- [All Contributors](../../contributors)
 
 ## License
 
